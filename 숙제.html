@@ -1,0 +1,153 @@
+√
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Webpage Title -->
+  <title>상품판매</title>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- 구글폰트 -->
+  <link href="https://fonts.googleapis.com/css?family=Stylish&display=swap" rel="stylesheet">
+
+  <!-- style -->
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Noto+Sans+KR|Sen&display=swap" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    .page {
+      width: 600px;
+      margin: auto;
+    }
+
+    .img {
+      width: 600;
+      margin: center;
+    }
+
+    .text1 {
+      font-size: 25px;
+      margin-top: 5px;
+      margin-right: 100px;
+      margin-bottom: 5px;
+      font-weight: bold;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    .text2 {
+      font-size: 20px;
+      margin-top: 5px;
+      margin-right: 30px;
+      font-weight: bold;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    .text3 {
+      font-size: 15px;
+    }
+  </style>
+
+  <script>
+
+    function order() {
+      let name = $('#order_name .form-control').val();
+      let count = $('#order_count .custom-select').val();
+      let address = $('#order_address .form-control').val();
+      let phone = $('#order_phone .form-control').val();
+
+      if (name == '') {
+        alert('이름을 입력하세요')
+        $('#order_name .form-control').focus()
+        return
+      } else if (count == '') {
+        alert('수량을 입력해주세요')
+        $('#order_count .custom-select').focus()
+        return
+      }
+      else if (address == '') {
+        alert('이메일을 입력하세요')
+        $('#order_address .form-control').focus()
+        return
+      }
+      else if (address.indexOf('@') == -1) {
+        alert('이메일이 아닙니다')
+        $('#order_address .form-control').focus()
+        return
+      }
+      else if (address.indexOf('.') == -1) {
+        alert('이메일이 아닙니다')
+        $('#order_address .form-control').focus()
+        return
+      } else if (phone == '') {
+        alert('번호를 입력해주세요')
+        $('#order_phone .form-control').focus()
+        return
+      } else if (phone.length > 11) {
+        alert('올바르게 입력해주세요')
+        $('#order_phone .form-control').focus()
+        return
+      }
+  </script>
+
+</head>
+
+<body>
+  <div class="page">
+    <img class="page"
+      src="http://blogfiles.naver.net/MjAxOTA2MTFfMTY2/MDAxNTYwMjMyNDY1MjM2.TRcTRwh0kwe9ySTtwSNwx3WtpqNAukBHmVJm9gsgGSgg.52fhI8gTwmIPfufH6d1dxUJ1iuGPE2ETbZ3_Riiy-gMg.JPEG.copenkorea/1544310582f.jpg"
+      alt="Card image cap">
+
+
+    <span class="text1">상품제목</span>
+    <span class="text2">가격: 2억1,500~2억4,300만원</span>
+    <p class="text3">2020 밴츠 G클래스 AMG 차량은 1개의 모델로(AMG G 63)이 있으며,
+      2개의 트림별 가격은 2억 1,190~2억2,960원 입니다.
+      엔진형식은 V8 트윈터보 방식을 사용하며, 배기량 3,960cc
+      여비는 자동6.1km/L(가솔린) 구동방식은 풀타임 4륜구동 방식을 사용합니다.</p>
+    <span class="text1">주문하기</span>
+    <form>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text" id="btnGroupAddon">주문자</div>
+        </div>
+        <input id="order_name" type="text" class="form-control" placeholder="ex)홍길동" aria-label="Input group example"
+          aria-describedby="btnGroupAddon">
+      </div>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text" id="btnGroupAddon">수량</div>
+        </div>
+        <select class="custom-select" id="order_count">
+          <option selected>수량을 선택하십시오</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text" id="btnGroupAddon">이메일</div>
+        </div>
+        <input id="order_addres" type="text" class="form-control" placeholder="abcd@abc.com"
+          aria-label="Input group example" aria-describedby="btnGroupAddon">
+      </div>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text" id="btnGroupAddon">전화번호</div>
+        </div>
+        <input id="order_phone" type="text" class="form-control" placeholder="01000000000"
+          aria-label="Input group example" aria-describedby="btnGroupAddon">
+      </div>
+    </form>
+    <button onclick="order()" type="button" class="btn btn-primary">주문하기</button>
+  </div>
+
+</body>
